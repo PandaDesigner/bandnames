@@ -37,6 +37,7 @@ const App = () => {
   const voteBand = (id) => socket.emit('vote-band', id)
   const deleteBand = (id) => socket.emit('delete-band', id)
   const nameChangeBand = (id, name) => socket.emit('name-change-band', { id, name })
+  const newBands = (name) => socket.emit('new-band', name)
 
 
 
@@ -63,7 +64,9 @@ const App = () => {
             />
           </div>
           <div className="col-4">
-            <BandAdd />
+            <BandAdd
+              newBands={newBands}
+            />
           </div>
         </div>
 
